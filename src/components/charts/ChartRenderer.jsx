@@ -1,9 +1,7 @@
-import BarChartView from "./BarChartView";
 import LineChartView from "./LineChartView";
 import PieChartView from "./PieChartView";
 
 const CHART_COMPONENTS = {
-  bar: BarChartView,
   line: LineChartView,
   pie: PieChartView,
 };

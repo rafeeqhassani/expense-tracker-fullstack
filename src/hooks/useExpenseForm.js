@@ -234,18 +234,12 @@ function useExpenseForm({
     } catch (error) {
       console.error("Submit failed", error);
     } finally {
-      dispatch({
-        type: "SET_SUBMITTING",
-        payload: false,
-      });
       submitLock.current = false;
     }
   }
 
   function handleEditExpense(id) {
-    const expense = expenses.find(
-      (expense) => expense.id === id && !expense.deleted,
-    );
+    const expense = expenses.find((expense) => expense.id === id);
 
     if (!expense) {
       showToastMessage("No expenses found", "info");

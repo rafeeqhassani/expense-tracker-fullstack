@@ -29,6 +29,12 @@ async function getExpenses(filters = {}) {
   return request(url, { cache: "no-store" });
 }
 
+async function getRecurringExpenses() {
+  return request(`${API_URL}/expenses/recurring`, {
+    cache: "no-store",
+  });
+}
+
 async function createExpense(expense) {
   return request(`${API_URL}/expenses`, {
     method: "POST",
@@ -79,4 +85,5 @@ export {
   restoreExpense,
   clearAllExpenses,
   deleteSelectedExpenses,
+  getRecurringExpenses,
 };

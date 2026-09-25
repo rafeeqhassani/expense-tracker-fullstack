@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BudgetAlert from "./BudgetAlert";
-
+/*
 function MonthlyBudgetSummaryAlert({ summary }) {
   const navigate = useNavigate();
 
@@ -34,3 +34,4 @@ function MonthlyBudgetSummaryAlert({ summary }) {
 }
 
 export default MonthlyBudgetSummaryAlert;
+*/

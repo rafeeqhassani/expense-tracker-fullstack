@@ -10,6 +10,7 @@ import {
 
 import { chartColors } from "../../utils/chartsColors";
 
+/*
 function BarChartView({ data }) {
   return (
     <ResponsiveContainer width="100%" height={350}>
@@ -28,3 +29,4 @@ function BarChartView({ data }) {
 }
 
 export default BarChartView;
+*/

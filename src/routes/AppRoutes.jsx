@@ -10,6 +10,7 @@ import LandingPage from "../pages/LandingPage";
 import DemoLoginPage from "../pages/DemoLoginPage";
 import ActivitiesPage from "../pages/ActivitiesPage";
 import CategoryAnalyticsPage from "../pages/CategoryAnalyticsPage";
+import RecurringPage from "../pages/RecurringPage";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -36,6 +37,7 @@ function AppRoutes() {
         <Route path="expenses" element={<ExpensePage />} />
         <Route path="activities" element={<ActivitiesPage />} />
         <Route path="categories" element={<CategoryAnalyticsPage />} />
+        <Route path="recurring" element={<RecurringPage />} />
       </Route>
     </Routes>
   );

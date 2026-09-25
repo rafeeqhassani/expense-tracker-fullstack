@@ -1,6 +1,7 @@
 import { createContext, useCallback, useMemo } from "react";
 
 import useExpenses from "../hooks/useExpenses";
+import useRecurringExpenses from "../hooks/useRecurringExpenses";
 import useFilters from "../hooks/useFilters";
 import useExpenseForm from "../hooks/useExpenseForm";
 import useToast from "../hooks/useToast";
@@ -50,13 +51,9 @@ function AppProviders({ children }) {
     activities.addActivity,
   );
 
-  const activeExpenses = useMemo(
-    () =>
-      Array.isArray(expense.expenses)
-        ? expense.expenses.filter((item) => !item.deleted)
-        : [],
-    [expense.expenses],
-  );
+  const recurring = useRecurringExpenses(auth.loading, auth.token);
+
+  const activeExpenses = expense.expenses;
 
   const activityPreview = useActivityPreview(
     activityRefreshKey,
@@ -171,6 +168,13 @@ function AppProviders({ children }) {
         error: expense.error,
       },
 
+      recurring: {
+        recurringExpenses: recurring.recurringExpenses,
+        loading: recurring.loading,
+        error: recurring.error,
+        loadRecurringExpenses: recurring.loadRecurringExpenses,
+      },
+
       activity: {
         activities: activities.activities,
         loading: activities.loading,
@@ -256,6 +260,7 @@ function AppProviders({ children }) {
       activityPreview,
       expenseActions,
       expense,
+      recurring,
       clearAll,
     ],
   );

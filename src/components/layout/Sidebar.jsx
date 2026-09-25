@@ -9,7 +9,7 @@ import {
   FaSignOutAlt,
   FaHistory,
 } from "react-icons/fa";
-import { FaXmark } from "react-icons/fa6";
+import { FaXmark, FaRepeat } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const NAV_ITEMS = [
@@ -33,6 +33,11 @@ const NAV_ITEMS = [
     path: "/dashboard/budget",
     label: "Budget Management",
     icon: <FaPiggyBank />,
+  },
+  {
+    path: "/dashboard/recurring",
+    label: "Recurring",
+    icon: <FaRepeat />,
   },
 ];
 

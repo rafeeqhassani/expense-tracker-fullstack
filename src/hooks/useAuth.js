@@ -91,7 +91,7 @@ function useAuth() {
     setError(null);
 
     try {
-      const data = await getCurrentUser(storedToken);
+      const data = await getCurrentUser();
 
       setToken(storedToken);
       setUser(data.user);

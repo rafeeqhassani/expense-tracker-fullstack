@@ -137,8 +137,6 @@ function useExpenses(
     try {
       const savedExpense = await createExpense(newExpense);
 
-      await loadExpenses();
-
       await addActivity("ADD_EXPENSE", `Added ${savedExpense.title}`);
 
       showToastMessage("Expense added", "success");
@@ -152,7 +150,6 @@ function useExpenses(
   const handleUpdateExpense = async (id, updatedData) => {
     try {
       await updateExpense({ id, ...updatedData });
-      await loadExpenses();
 
       await addActivity("UPDATE_EXPENSE", `Updated ${updatedData.title}`);
 
@@ -171,12 +168,6 @@ function useExpenses(
       setDeletingId(id);
 
       await deleteExpense(id);
-
-      setExpenses((prev) =>
-        prev.map((expense) =>
-          expense.id === id ? { ...expense, deleted: true } : expense,
-        ),
-      );
 
       const deletedExpense =
         expenses.find((expense) => expense.id === id) ?? null;
@@ -258,8 +249,7 @@ function useExpenses(
   };
 
   const handleSelectAll = () => {
-    const activeExpenses = expenses.filter((expense) => !expense.deleted);
-    setSelectedIds(selectAllExpenses(activeExpenses));
+    setSelectedIds(selectAllExpenses(expenses));
   };
 
   const handleDeselectAll = () => {
@@ -271,10 +261,10 @@ function useExpenses(
   };
 
   // --- Derived values ---
-  const activeExpenses = expenses.filter((expense) => !expense.deleted);
+
   const selectedCount = getSelectedCount(selectedIds);
-  const allSelected = areAllSelected(activeExpenses, selectedIds);
-  const someSelected = areSomeSelected(activeExpenses, selectedIds);
+  const allSelected = areAllSelected(expenses, selectedIds);
+  const someSelected = areSomeSelected(expenses, selectedIds);
 
   return {
     expenses,

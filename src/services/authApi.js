@@ -22,12 +22,9 @@ async function loginUser(credentials) {
   });
 }
 
-function getCurrentUser(token) {
+function getCurrentUser() {
   return request(`${API_URL}/auth/me`, {
     method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
   });
 }
 

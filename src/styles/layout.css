@@ -393,7 +393,14 @@
 
 @media (max-width: 767px) {
   .sidebar {
+    height: 100vh;
     overflow-y: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .header-user {
+    max-width: 6rem;
   }
 }
 
@@ -427,5 +434,9 @@
   .sidebar-toggle,
   .add-btn {
     display: none;
+  }
+
+  .nav-links {
+    overflow-y: auto;
   }
 }

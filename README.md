@@ -18,13 +18,13 @@ https://github.com/rafeeqhassani/expense-tracker-react
 
 ## Backend API
 
-https://expense-tracker-api-production-c311.up.railway.app
+https://expense-tracker-api.bonto.run
 
 ## API Documentation
 
 Swagger UI:
 
-https://expense-tracker-api-production-c311.up.railway.app/api-docs
+https://expense-tracker-api.bonto.run/api-docs
 
 ---
 
